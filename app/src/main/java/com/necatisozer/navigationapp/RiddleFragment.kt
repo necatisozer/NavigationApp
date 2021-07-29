@@ -25,7 +25,7 @@ class RiddleFragment : Fragment(R.layout.fragment_riddle) {
         }
     }
 
-    private fun Fragment.onSuccess() {
+    private fun onSuccess() {
         findNavController().navigate(R.id.action_riddleFragment_to_successFragment)
     }
 
