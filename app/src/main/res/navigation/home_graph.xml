@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.necatisozer.navigationapp.StartFragment"
+        android:label="@string/welcome"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_riddleFragment"
+            app:destination="@id/riddleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/riddleFragment"
+        android:name="com.necatisozer.navigationapp.RiddleFragment"
+        android:label="@string/riddle"
+        tools:layout="@layout/fragment_riddle">
+        <action
+            android:id="@+id/action_riddleFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_riddleFragment_to_failFragment"
+            app:destination="@id/failFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.necatisozer.navigationapp.SuccessFragment"
+        android:label="@string/congratulations"
+        tools:layout="@layout/fragment_success">
+        <action
+            android:id="@+id/action_successFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="correctAnswer"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.necatisozer.navigationapp.FailFragment"
+        android:label="@string/ooops"
+        tools:layout="@layout/fragment_fail">
+        <action
+            android:id="@+id/action_failFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

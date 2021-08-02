@@ -2,20 +2,39 @@ package com.necatisozer.navigationapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.necatisozer.navigationapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class MainActivity : AppCompatActivity() {
+    private val binding by viewBinding(ActivityMainBinding::inflate)
 
+    private val navController by lazy {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        findViewById<Toolbar>(R.id.toolbar)
-            .setupWithNavController(navController, appBarConfiguration)
+        navHostFragment.navController
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        initToolbar()
+        initBottomNav()
+    }
+
+    private fun initToolbar() {
+        // val appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        val appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.home_graph,
+            R.id.about_graph,
+        ).build()
+
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun initBottomNav() {
+        binding.bottomNavigationView.setupWithNavController(navController)
     }
 }
