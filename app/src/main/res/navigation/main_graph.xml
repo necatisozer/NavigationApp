@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.necatisozer.navigationapp.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
+        android:label="@string/welcome"
+        tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/action_startFragment_to_riddleFragment"
             app:destination="@id/riddleFragment" />
@@ -17,11 +17,15 @@
     <fragment
         android:id="@+id/riddleFragment"
         android:name="com.necatisozer.navigationapp.RiddleFragment"
-        android:label="fragment_riddle"
-        tools:layout="@layout/fragment_riddle" >
+        android:label="@string/riddle"
+        tools:layout="@layout/fragment_riddle">
         <action
             android:id="@+id/action_riddleFragment_to_successFragment"
             app:destination="@id/successFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/startFragment" />
         <action
             android:id="@+id/action_riddleFragment_to_failFragment"
@@ -31,8 +35,8 @@
     <fragment
         android:id="@+id/successFragment"
         android:name="com.necatisozer.navigationapp.SuccessFragment"
-        android:label="fragment_success"
-        tools:layout="@layout/fragment_success" >
+        android:label="@string/congratulations"
+        tools:layout="@layout/fragment_success">
         <action
             android:id="@+id/action_successFragment_to_startFragment"
             app:destination="@id/startFragment"
@@ -46,8 +50,8 @@
     <fragment
         android:id="@+id/failFragment"
         android:name="com.necatisozer.navigationapp.FailFragment"
-        android:label="fragment_fail"
-        tools:layout="@layout/fragment_fail" >
+        android:label="@string/ooops"
+        tools:layout="@layout/fragment_fail">
         <action
             android:id="@+id/action_failFragment_to_startFragment"
             app:destination="@id/startFragment"

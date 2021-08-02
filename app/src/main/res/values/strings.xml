@@ -11,4 +11,7 @@
     <string name="correct_answer">Correct Answer</string>
     <string name="wrong_answer">Wrong Answer</string>
     <string name="play_again">Play Again</string>
+    <string name="riddle">riddle</string>
+    <string name="congratulations">congratulations</string>
+    <string name="ooops">Ooops...</string>
 </resources>
