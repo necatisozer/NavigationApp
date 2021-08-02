@@ -17,7 +17,8 @@ class FailFragment : Fragment(R.layout.fragment_fail) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_failFragment_to_startFragment)
+            val direction = FailFragmentDirections.actionFailFragmentToStartFragment()
+            findNavController().navigate(direction)
         }
     }
 }

@@ -13,7 +13,8 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment_to_riddleFragment)
+            val direction = StartFragmentDirections.actionStartFragmentToRiddleFragment()
+            findNavController().navigate(direction)
         }
     }
 }

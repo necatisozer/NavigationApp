@@ -27,11 +27,12 @@ class RiddleFragment : Fragment(R.layout.fragment_riddle) {
     }
 
     private fun onSuccess() {
-        val action: NavDirections = RiddleFragmentDirections.actionRiddleFragmentToSuccessFragment("uçak")
-        findNavController().navigate(action)
+        val direction: NavDirections = RiddleFragmentDirections.actionRiddleFragmentToSuccessFragment("uçak")
+        findNavController().navigate(direction)
     }
 
     private fun onFail() {
-        findNavController().navigate(R.id.action_riddleFragment_to_failFragment)
+        val direction = RiddleFragmentDirections.actionRiddleFragmentToFailFragment()
+        findNavController().navigate(direction)
     }
 }

@@ -20,7 +20,8 @@ class SuccessFragment : Fragment(R.layout.fragment_success) {
         binding.textViewCorrectAnswer.isVisible = args.correctAnswer.isNullOrBlank().not()
 
         binding.button.setOnClickListener {
-            findNavController().navigate(R.id.action_successFragment_to_startFragment)
+            val direction = SuccessFragmentDirections.actionSuccessFragmentToStartFragment()
+            findNavController().navigate(direction)
         }
     }
 }
