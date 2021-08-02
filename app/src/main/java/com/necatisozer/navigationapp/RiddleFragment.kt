@@ -3,6 +3,7 @@ package com.necatisozer.navigationapp
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.necatisozer.navigationapp.databinding.FragmentRiddleBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
@@ -26,7 +27,8 @@ class RiddleFragment : Fragment(R.layout.fragment_riddle) {
     }
 
     private fun onSuccess() {
-        findNavController().navigate(R.id.action_riddleFragment_to_successFragment)
+        val action: NavDirections = RiddleFragmentDirections.actionRiddleFragmentToSuccessFragment("uçak")
+        findNavController().navigate(action)
     }
 
     private fun onFail() {

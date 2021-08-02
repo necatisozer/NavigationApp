@@ -38,6 +38,10 @@
             app:destination="@id/startFragment"
             app:popUpTo="@id/startFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="correctAnswer"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/failFragment"
